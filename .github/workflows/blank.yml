@@ -35,6 +35,7 @@ jobs:
         with:
           # Specify the script here
           inlineScript: |
+            echo Hello, world!
             echo $AZURE_STORAGE_ACCOUNT_KEY
             echo "This is a simple text file." > dummy.txt
             az storage blob upload --account-name "deep1999a3e2" --account-key $AZURE_STORAGE_ACCOUNT_KEY --container-name "test" --name "dummy.txt" --file ./dummy.txt

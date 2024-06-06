@@ -31,10 +31,11 @@ jobs:
 
       - uses: Azure/cli@v2.0.0
         env:
-          AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.STORAGE_KEY }}
+          AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
         with:
           # Specify the script here
           inlineScript: |
+            echo $AZURE_STORAGE_ACCOUNT_KEY
             echo "This is a simple text file." > dummy.txt
             az storage blob upload --account-name "deep1999a3e2" --account-key $AZURE_STORAGE_ACCOUNT_KEY --container-name "test" --name "dummy.txt" --file ./dummy.txt
          
